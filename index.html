@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- This link is pulling the TailwindCSS styling in from a local file -->
+  <link rel="stylesheet" href="./public/styles.css">
+
+  <!-- 
+    This link is pulling the TailwindCSS styling in from the internet by using 
+    something called a 'CDN' link.  Make this link active if for some reason, 
+    the local file is not working, and you want to experiment with TailwindCSS 
+    regardless of what is breaking the local env
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+  -->
+
+  <meta charset="UTF-8">
+  <title>My Website</title>
+</head>
+<body>
+  <header>
+    <h1 class="text-lime-600">I am an H1 title in Lime-600</h1>
+  </header>
+  
+  <main>
+    <section>
+      <h2 class="text-red-700">I am an H2 title in Red-700</h2>
+      <div class="p-4">
+        <p>This workspace will get Jye started with TailwindCSS & HTML! 😃</p>
+        <p>The H1 & H2 titles herein are big because of the custom styles Richard added in 
+          <b>
+            <i>./src/input.css</i>
+          </b>
+        </p>
+      </div>
+    </section>
+</body>
+</html>
