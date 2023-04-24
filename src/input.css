@@ -9,3 +9,27 @@ h1 {
 h2 {
     @apply px-4 text-2xl font-semibold tracking-wide;
 }
+
+.relative:hover button {
+    transform: scale(1.1);
+    z-index: 1;
+  }
+
+  .relative:hover ~ .relative .bg-transparent {
+    transform: translateX(10%);
+  }
+
+  /* this is the fancy animations */
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease-in;
+  }
