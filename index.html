@@ -43,37 +43,43 @@
   <section>
     <div class="container mx-auto py-10 px-4">
       <div class="flex flex-wrap justify-center gap-1">
-        <div class="relative fade-in">
+        <div class="relative fade-in" id="label1" data-info="Description for flavor 1">
           <button class="bg-transparent p-0">
             <img src="content/JUICE LABELS-01.svg" alt="Flavor 1" class="w-full md:w-36 object-contain hover:scale-110 transition duration-300">
           </button>
+
+          <div class="container mx-auto py-10 px-4">
+            <div id="info" class="mt-5 text-center hidden"></div>
+          </div>
+          
+
         </div>
-        <div class="relative">
+        <div class="relative fade-in">
           <button class="bg-transparent p-0">
             <img src="content/JUICE LABELS-02.svg" alt="Flavor 1" class="w-full md:w-36 object-contain hover:scale-110 transition duration-300">
           </button>
         </div>
-        <div class="relative">
+        <div class="relative fade-in">
           <button class="bg-transparent p-0">
             <img src="content/JUICE LABELS-03.svg" alt="Flavor 1" class="w-full md:w-36 object-contain hover:scale-110 transition duration-300">
           </button>
         </div>
-        <div class="relative">
+        <div class="relative fade-in">
           <button class="bg-transparent p-0">
             <img src="content/JUICE LABELS-04.svg" alt="Flavor 1" class="w-full md:w-36 object-contain hover:scale-110 transition duration-300">
           </button>
         </div>
-        <div class="relative">
+        <div class="relative fade-in">
           <button class="bg-transparent p-0">
             <img src="content/JUICE LABELS-05.svg" alt="Flavor 1" class="w-full md:w-36 object-contain hover:scale-110 transition duration-300">
           </button>
         </div>
-        <div class="relative">
+        <div class="relative fade-in">
           <button class="bg-transparent p-0">
             <img src="content/JUICE LABELS-06.svg" alt="Flavor 1" class="w-full md:w-36 object-contain hover:scale-110 transition duration-300">
           </button>
         </div>
-        <div class="relative">
+        <div class="relative fade-in">
           <button class="bg-transparent p-0">
             <img src="content/JUICE LABELS-07.svg" alt="Flavor 1" class="w-full md:w-36 object-contain hover:scale-110 transition duration-300">
           </button>
@@ -95,3 +101,42 @@
 </body>
 
 </html>
+
+
+<script>
+  // Function to handle clicking on labels
+  function handleLabelClick(labelId, infoText) {
+    const labels = document.querySelectorAll('.relative');
+    const infoDiv = document.getElementById('info');
+
+    labels.forEach((label) => {
+      if (label.id === labelId) {
+        label.style.transform = 'translateX(50%)';
+        label.style.opacity = '1';
+      } else {
+        label.style.opacity = '0';
+      }
+    });
+
+    infoDiv.innerHTML = '';
+    infoDiv.classList.remove('hidden');
+    typeText(infoText, 0, infoDiv);
+  }
+
+  // Function to type the text letter by letter
+  function typeText(text, index, element) {
+    if (index < text.length) {
+      element.innerHTML += text.charAt(index);
+      setTimeout(() => {
+        typeText(text, index + 1, element);
+      }, 100);
+    }
+  }
+
+  // Adding click event listeners to the labels
+  document.querySelectorAll('.relative').forEach((label) => {
+    label.addEventListener('click', () => {
+      handleLabelClick(label.id, label.dataset.info);
+    });
+  });
+</script>

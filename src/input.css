@@ -18,6 +18,10 @@ h2 {
   .relative:hover ~ .relative .bg-transparent {
     transform: translateX(10%);
   }
+  
+  .relative {
+    margin-right: 1rem;
+  }
 
   /* this is the fancy animations */
 
